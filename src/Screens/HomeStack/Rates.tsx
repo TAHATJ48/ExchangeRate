@@ -47,10 +47,10 @@ export default function Rates(route) {
     var lastWeekDisplay = ("0000" + lastWeekYear.toString()).slice(-4) + "-" + ("00" + lastWeekMonth.toString()).slice(-2) + "-" + ("00" + lastWeekDay.toString()).slice(-2);
 
     const date = new Date().getDate()
-    const url = `https://api.apilayer.com/exchangerates_data/latest?apikey=sTfnMd0LMjgQR0LXYlQ1cOad6cGUNPsZ&symbols=EUR,GBP,USD,JPY,CNY,CAD,AUD,MAD&base=${route.route.params.base}`
-    const lastweekurl = `https://api.apilayer.com/exchangerates_data/${lastWeekDisplay}?symbols=EUR,GBP,USD,JPY,CNY,CAD,AUD,MAD&base=${route.route.params.base}&apikey=sTfnMd0LMjgQR0LXYlQ1cOad6cGUNPsZ`
-    const last2weekurl = `https://api.apilayer.com/exchangerates_data/${last2WeekDisplay}?symbols=EUR,GBP,USD,JPY,CNY,CAD,AUD,MAD&base=${route.route.params.base}&apikey=sTfnMd0LMjgQR0LXYlQ1cOad6cGUNPsZ`
-    const last3weekurl = `https://api.apilayer.com/exchangerates_data/${last3WeekDisplay}?symbols=EUR,GBP,USD,JPY,CNY,CAD,AUD,MAD&base=${route.route.params.base}&apikey=sTfnMd0LMjgQR0LXYlQ1cOad6cGUNPsZ`
+    const url = `https://api.apilayer.com/exchangerates_data/latest?apikey=buGAe0Mxfmdl5wtbWyG9CmMvbrvpYABZ&symbols=EUR,GBP,USD,JPY,CNY,CAD,AUD,MAD&base=${route.route.params.base}`
+    const lastweekurl = `https://api.apilayer.com/exchangerates_data/${lastWeekDisplay}?symbols=EUR,GBP,USD,JPY,CNY,CAD,AUD,MAD&base=${route.route.params.base}&apikey=buGAe0Mxfmdl5wtbWyG9CmMvbrvpYABZ`
+    const last2weekurl = `https://api.apilayer.com/exchangerates_data/${last2WeekDisplay}?symbols=EUR,GBP,USD,JPY,CNY,CAD,AUD,MAD&base=${route.route.params.base}&apikey=buGAe0Mxfmdl5wtbWyG9CmMvbrvpYABZ`
+    const last3weekurl = `https://api.apilayer.com/exchangerates_data/${last3WeekDisplay}?symbols=EUR,GBP,USD,JPY,CNY,CAD,AUD,MAD&base=${route.route.params.base}&apikey=buGAe0Mxfmdl5wtbWyG9CmMvbrvpYABZ`
     const [allRates, setAllRates] = useState([])
     const [allRatesWeek1, setAllRatesWeek1] = useState([])
     const [allRatesWeek2, setAllRatesWeek2] = useState([])

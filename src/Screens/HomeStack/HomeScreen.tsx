@@ -23,7 +23,7 @@ export default function HomeScreen() {
         }
     };
     const [isLoading, setLoading] = useState(true);
-    const url = 'https://api.apilayer.com/exchangerates_data/symbols?apikey=sTfnMd0LMjgQR0LXYlQ1cOad6cGUNPsZ'
+    const url = 'https://api.apilayer.com/exchangerates_data/symbols?apikey=buGAe0Mxfmdl5wtbWyG9CmMvbrvpYABZ'
     const [allCurrencies, setAllCurrencies] = useState([])
     let navigation = useNavigation();
 
@@ -33,6 +33,7 @@ export default function HomeScreen() {
             const json = await response.json();
             setAllCurrencies(json.symbols);
             retrieveData();
+            console.log(allCurrencies)
         } catch (error) {
             console.error(error);
         } finally {
@@ -48,21 +49,29 @@ export default function HomeScreen() {
     }, [])
     return (
         <ScrollView>
-            {
-                Object.entries(allCurrencies).map(([key, value]) => (
-                    <Text key={key}>
-                        {key}: {value}
-                        {"\n"}
-                        <Button title="See Rates" onPress={() => {
-                            navigation.navigate('CurrencyRates', {
-                                title: value,
-                                base: key
-                            });
-                        }} />
-                        <Button title="Add To Favorites" onPress={() => storeData(key,value)}   />
-                    </Text>
+            {allCurrencies ? (
+                <View>
+                    {
+                        Object.entries(allCurrencies).map(([key, value]) => (
+                            <Text key={key}>
+                                {key}: {value}
+                                {"\n"}
+                                <Button title="See Rates" onPress={() => {
+                                    navigation.navigate('CurrencyRates', {
+                                        title: value,
+                                        base: key
+                                    });
+                                }} />
+                                <Button title="Add To Favorites" onPress={() => storeData(key, value)} />
+                            </Text>
 
-                ))}
+                        ))}
+                </View>
+            ) : (
+                <Text>
+                    No Currency
+                </Text>
+            )}
         </ScrollView>
     );
 }
